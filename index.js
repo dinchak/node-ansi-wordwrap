@@ -11,26 +11,30 @@ module.exports = function (str, opts) {
     opts.patterns = patterns.concat(opts.patterns)
   }
 
-  let parts = str.split(' ')
-  let out = ''
-  let line = ''
+  let strings = str.split('\n')
+  let outLines = []
 
-  for (let part of parts) {
-    if (getLength(part, opts) + getLength(line, opts) + 1 > opts.width) {
-      out += line + '\n'
-      line = ''
+  for (let sub of strings) {
+    let parts = sub.split(' ')
+    let line = ''
+
+    for (let part of parts) {
+      if (getLength(part, opts) + getLength(line, opts) + 1 > opts.width) {
+        outLines.push(line)
+        line = ''
+      }
+
+      if (line) {
+        line += ' '
+      }
+
+      line += part
     }
 
-    if (line) {
-      line += ' '
-    }
-
-    line += part
+    outLines.push(line)
   }
 
-  out += line
-
-  return out
+  return outLines.join('\n')
 }
 
 function getLength(str, opts) {
