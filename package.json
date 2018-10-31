@@ -1,0 +1,19 @@
+{
+  "name": "ansi-wordwrap",
+  "version": "1.0.0",
+  "description": "Word wraps text while ignoring ANSI codes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tom Dinchak <dinchak@gmail.com>",
+  "keywords": [
+    "ansi",
+    "wordwrap"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dinchak/node-ansi-wordwrap.git"
+  },
+  "license": "ISC"
+}
